@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@p2padv/blockchain": ["libs/blockchain/src/index.ts"],
+      "@p2padv/core": ["libs/core/src/index.ts"],
+      "@p2padv/transactions-base": ["libs/transactions/base/src/index.ts"],
+      "@p2padv/wallet": ["libs/wallet/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

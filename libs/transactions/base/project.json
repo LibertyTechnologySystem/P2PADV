@@ -1,0 +1,45 @@
+{
+  "name": "transactions-base",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/transactions/base/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/transactions/base",
+        "tsConfig": "libs/transactions/base/tsconfig.lib.json",
+        "packageJson": "libs/transactions/base/package.json",
+        "main": "libs/transactions/base/src/index.ts",
+        "assets": ["libs/transactions/base/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs transactions-base {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/transactions/base/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/transactions/base/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
