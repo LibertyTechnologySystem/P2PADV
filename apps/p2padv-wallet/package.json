@@ -13,7 +13,8 @@
     "@expo/metro-config": "*",
     "react": "18.2.0",
     "expo-splash-screen": "~0.18.2",
-    "expo-status-bar": "~1.4.4"
+    "expo-status-bar": "~1.4.4",
+    "@babel/core": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && node tools/scripts/eas-build-pre-install.mjs . apps/p2padv-wallet && cp package-lock.json apps/p2padv-wallet",
