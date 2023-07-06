@@ -1,6 +1,17 @@
+// process.env.EXPO_ROUTER_APP_ROOT = '../../src/app';
+
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['babel-preset-expo'],
+    presets: [['babel-preset-expo', {jsxRuntime: 'automatic'}]],
+    plugins: [
+      require.resolve('expo-router/babel'),
+      [
+      //   'transform-inline-environment-variables',
+      //   {
+      //     include: ['EXPO_ROUTER_APP_ROOT'],
+      //   },
+      // ],
+    ],
   };
 };
